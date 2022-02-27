@@ -28,7 +28,7 @@ export default function Contactus() {
                 </div>
                 <div className='col-md-4 col-6 d-none d-sm-block'>
                     <img className='float-end' style={{ height: "300px" }}
-                        src={Capture2} />
+                        src={Capture2} alt='icon'/>
                 </div>
             </div>
             {/* Training Enquiry section */}

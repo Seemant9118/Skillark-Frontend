@@ -13,7 +13,7 @@ function CounsellingReg(props) {
     <div className='row align-items-center justify-content-center my-5 mx-0'>
       <div className='col-md-4 order-md-2'>
         <img className='float-end' style={{ height: "300px" }}
-          src={Counsellors[index].img} />
+          src={Counsellors[index].img} alt='icon' />
       </div>
       <div className='col-md-6 px-5 order-md-1'>
         <h1>{Counsellors[index].name}</h1>

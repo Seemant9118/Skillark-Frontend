@@ -5,7 +5,7 @@ export default function Card(props) {
   return (
     <div className="col-md-3 col-sm-6 my-3 px-4 home-feature">
       <div className="card p-0 border-2">
-        <img className='card-img-top'  src={props.img}/>
+        <img className='card-img-top' src={props.img} alt={props.img}/>
         {/* // style={{height:'200px' , overflow:'hidden'}}></img> */}
         <div className="card-body bg-ska-primary">
           <h5 className='card-title text-white'

@@ -52,7 +52,7 @@ export default function Contactform(props) {
                             })} required />
                     </div>
                     <div className="col-md m-2">
-                        <input type="tel" type="tel" pattern="[5-9]{1}[0-9]{9}" placeholder="Phone" aria-label="Phone"
+                        <input type="tel" pattern="[5-9]{1}[0-9]{9}" placeholder="Phone" aria-label="Phone"
                             className="form-control border-ska-primary-dark border-2 border-0 border-bottom"
                             value={formData.phone} onChange={(event) => setFormData({
                                 ...formData, phone: event.target.value

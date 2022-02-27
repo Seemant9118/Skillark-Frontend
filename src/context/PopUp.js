@@ -16,8 +16,9 @@ const closeButton = {
     position: 'absolute',
     top: '3vh',
     right: '6vw',
-    border:'1px solid #026c62',
-    borderRadius: '30%',
+    border: '2px solid #026c62',
+    borderRadius: '20%',
+    padding:'5px 10px',
     zIndex: 11,
 }
 
@@ -40,16 +41,14 @@ export default function PopUp(props) {
     } else {
         return ReactDOM.createPortal(
             <div>
-
-                <button style={closeButton} onClick={handlePopup} >X</button>
-
                 <div className='row align-items-center justify-content-center m-0' style={popup}>
                     <div className='col-md-10 col-11'>
+                        <button style={closeButton} onClick={handlePopup} ><i class="bi bi-x-lg"/></button>
                         <div className='ska-box'
                             style={{ maxHeight: '90vh', overflow: 'auto' }}>
                             <div className='row align-items-center justify-content-center m-0'>
                                 <div className='col-lg-6 col-10 order-md-5'>
-                                    <img className='float-end top-banner' src={props.img} />
+                                    <img className='float-end top-banner' src={props.img} alt={props.img} />
                                 </div>
                                 <div className='col-lg-5 col-10 order-md-1 p-0'>
                                     <div className='h1 fw-bold text-center text-ska-primary'>

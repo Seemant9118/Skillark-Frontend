@@ -40,8 +40,7 @@ export default function Loginmodule(props) {
           <div className=' d-block d-lg-none'>
             <div className='row justify-content-center'>
               <div className='col-sm-5 col-8'>
-                <img src={logoimage} className='img-fluid'
-                ></img>
+                <img src={logoimage} className='img-fluid' alt='icon'/>
               </div>
             </div>
           </div>
