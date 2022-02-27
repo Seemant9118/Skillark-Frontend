@@ -1,5 +1,5 @@
 {
-  "name": "skillark-frontend",
+  "name": "skillarkfrontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,12 +19,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cvasingh/skillark-frontend.git"
+    "url": "git+https://github.com/cvasingh/skillarkFrontend.git"
   },
   "author": "Shiva Singh",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cvasingh/skillark-frontend/issues"
+    "url": "https://github.com/cvasingh/skillarkFrontend/issues"
   },
   "scripts": {
     "start": "react-scripts start",

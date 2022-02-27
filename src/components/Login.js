@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Axios from "axios";
 import PrivateData from './data/PrivateData';
+import toastContext from '../context/toastContext'
 
 export default function Login() {
+    const noti = useContext(toastContext);
+
     const navigate = useNavigate();
     const [statusForm, setStatusForm] = useState("login");
     const [OTP, setOTP] = useState();
@@ -25,10 +28,10 @@ export default function Login() {
             .then(function (res) {
                 // console.log(res.data);
                 if (res.data === false) {
-                    alert('not match')
+                    noti.addNewMessage('Email or Password Not match', 'danger')
                     setStyle({ emailCSS: 'border-danger is-invalid', passwordCSS: 'border-danger is-invalid' })
                 } else {
-                    alert('login in successfuly')
+                    noti.addNewMessage('login in successfully', 'success')
                     // document.cookie = `ska${res.data}ska`
                     navigate('/')
                 }
@@ -41,7 +44,7 @@ export default function Login() {
             .then(function (res) {
                 // console.log(res.data);
                 if (res.data === false) {
-                    alert('Not exit')
+                    noti.addNewMessage('User Not exit', 'warning');
                     navigate('/register')
                 } else {
                     setOTP(res.data)
@@ -55,13 +58,12 @@ export default function Login() {
         if (enterOTP == OTP) {
             setStatusForm('password')
         } else {
-            alert('enter wrongh otp')
+            noti.addNewMessage('OTP Not Match', 'danger')
         }
         e.preventDefault();
     }
     const handleResetPassword = (e) => {
         setStatusForm("login")
-
     }
 
     return <div className='row justify-content-center'>
@@ -123,7 +125,7 @@ export default function Login() {
                 </form>}
             {/* OTP form */}
             {statusForm === 'OTP' &&
-                <form method='POST' onSubmit={handleOTP}>
+                <form onSubmit={handleOTP}>
                     <div className="mb-3">
                         <input type="text" placeholder="OTP"
                             className="form-control form-control-lg border-ska-primary border-2 rounded-pill "
@@ -136,7 +138,7 @@ export default function Login() {
                 </form>}
             {/* reset password */}
             {statusForm === 'password' &&
-                <form method='POST' onSubmit={handleResetPassword}>
+                <form onSubmit={handleResetPassword}>
                     <div className='row mb-3'>
                         <input type="password" placeholder="Password"
                             className="form-control form-control-lg border-ska-primary border-2 rounded-pill"

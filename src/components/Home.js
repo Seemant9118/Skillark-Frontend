@@ -11,12 +11,21 @@ import EventPNG from './img/style/event.png'
 // import EventPNG from './img/style/event.png'
 import Typewriter from 'typewriter-effect';
 import HomeCard from './HomeCard';
+import PopUp from '../context/PopUp';
 
 export default function Home() {
 
 
     return (
         <>
+            <PopUp
+                img={EventPNG}
+                price='199'
+                title='Three Days Cloud BootCamp'
+                para='Register Now for 3 Day Workshop Hosted by Skillark on the Topic
+            of Cloud Platform (AWS/Azure), this Workshop will cover all the
+            Basic Services Of both Azure and AWS'
+            />
             <div className='row align-items-center justify-content-center m-0'>
                 <div className='col-md-4 col-6 order-md-5'>
                     <img className='float-end top-banner' src={Capture3} />

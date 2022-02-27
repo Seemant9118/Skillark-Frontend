@@ -10,7 +10,7 @@ export default function Main() {
     return <>
         <Navbar />
 
-        <Outlet />
+            <Outlet />
 
         <Footer />
     </>

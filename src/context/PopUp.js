@@ -10,12 +10,13 @@ const popup = {
     width: '100vw',
     height: '100vh',
     zIndex: 10,
-    backgroundColor: 'rgba(0,0,0,0.3)',
+    backgroundColor: 'rgba(0,0,0,0.4)',
 }
 const closeButton = {
     position: 'absolute',
     top: '3vh',
     right: '6vw',
+    border:'1px solid #026c62',
     borderRadius: '30%',
     zIndex: 11,
 }
@@ -40,8 +41,7 @@ export default function PopUp(props) {
         return ReactDOM.createPortal(
             <div>
 
-                <button style={closeButton} onClick={handlePopup}
-                >X</button>
+                <button style={closeButton} onClick={handlePopup} >X</button>
 
                 <div className='row align-items-center justify-content-center m-0' style={popup}>
                     <div className='col-md-10 col-11'>
