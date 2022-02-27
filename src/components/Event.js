@@ -13,7 +13,7 @@ export default function Event() {
         {formState && <EnrollForm price='199' title='Three_Days_Cloud_BootCamp' />}
         <div className='row align-items-center justify-content-center m-0'>
             <div className='col-lg-6 col-10 order-md-5'>
-                <img className='float-end  top-banner' src={EventPNG} />
+                <img className='float-end  top-banner' src={EventPNG}  alt='icon'/>
             </div>
             <div className='col-lg-5 col-10 order-md-1'>
                 <div className='ska-box'>

@@ -19,7 +19,7 @@ export default function Course(props) {
         <div className='row align-items-center justify-content-center m-0'>
           <div className='col-md-5 col-10 order-md-5'>
             <img className='float-end' style={{ height: "400px" }}
-              src={props.data.img} />
+              src={props.data.img} alt='icon' />
           </div>
           <div className='col-md-5 col-sm-10  order-md-1'>
             <div className=" mx-5 my-3 p-4">

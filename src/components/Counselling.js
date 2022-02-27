@@ -27,7 +27,7 @@ export default function Counselling() {
           </div>
         </div>
         <div className='col-lg-6 col-10'>
-          <img className='float-end top-banner' src={Counsell} />
+          <img className='float-end top-banner' src={Counsell} alt='icon' />
         </div>
       </div>
       <hr className='' />
@@ -40,7 +40,7 @@ export default function Counselling() {
                 pathname: `/counselling/${index}`,
                 state: `${index}`
               }}>
-                <img src={item.img} className='bg-placeholder-image rounded-pill img-fluid' />
+                <img src={item.img} className='bg-placeholder-image rounded-pill img-fluid' alt='icon' />
               </Link>
             </div>
             <div className='h3 text-center'>{item.name}</div>
@@ -56,7 +56,7 @@ export default function Counselling() {
       <div className='row align-items-center justify-content-center  m-0'>
         <div className='col-md-4 col-10 order-md-2'>
           <img className='float-end' style={{ height: "300px" }}
-            src={Capture3} />
+            src={Capture3}  alt='icon'/>
         </div>
         <div className='col-md-6 col-10 px-5 order-md-1'>
           <h1>Are you Stucked in Your Endless Career Loop? </h1>
@@ -66,7 +66,7 @@ export default function Counselling() {
       <div className='row align-items-center justify-content-center  m-0'>
         <div className='col-md-4 col-10 order-md-1'>
           <img className='float-end' style={{ height: "300px" }}
-            src={Capture1} />
+            src={Capture1}  alt='icon'/>
         </div>
         <div className='col-md-6 col-10 px-5 order-md-2'>
           <h1>TECHNOLOGY IS NEED</h1>
@@ -76,7 +76,7 @@ export default function Counselling() {
       <div className='row align-items-center justify-content-center  m-0'>
         <div className='col-md-4 col-10 order-md-2'>
           <img className='float-end' style={{ height: "300px" }}
-            src={Capture2} />
+            src={Capture2} alt='icon' />
         </div>
         <div className='col-md-6 col-10 px-5 order-md-1'>
           <h1>Are you in dilemma to choose the right track??</h1>

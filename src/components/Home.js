@@ -28,11 +28,11 @@ export default function Home() {
             />
             <div className='row align-items-center justify-content-center m-0'>
                 <div className='col-md-4 col-6 order-md-5'>
-                    <img className='float-end top-banner' src={Capture3} />
+                    <img className='float-end top-banner' src={Capture3}  alt='icon'/>
                 </div>
                 <div className=' col-md-3 order-md-3'>
                     <img className='d-none d-xl-block float-end' style={{ height: "250px" }}
-                        src={Capture2} />
+                        src={Capture2}  alt='icon'/>
                 </div>
                 <div className='col-md-4 col-6  order-md-1'>
                     <div className='display-2 fw-bold text-center text-ska-primary'>

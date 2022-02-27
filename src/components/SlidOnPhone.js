@@ -1,5 +1,4 @@
 import React from 'react';
-import IMG from './img/img.png'
 
 export default function SlidOnPhone(props) {
 
@@ -64,7 +63,7 @@ export default function SlidOnPhone(props) {
                                 {item.desc}
                             </div>
                             <img style={{borderTopLeftRadius:'20px'}}
-                            className="inst_imgP" src={item.img} />
+                            className="inst_imgP" src={item.img} alt='img' />
                         </div>)
                     })}
                 </div>

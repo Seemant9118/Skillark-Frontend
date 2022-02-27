@@ -61,7 +61,7 @@ export default function Slid(props) {
                             {item.desc}
                         </div>
                         <img  style={{borderTopLeftRadius:'20px'}}
-                        className="inst_img " src={item.img} />
+                        className="inst_img " src={item.img}  alt='img'/>
                     </div>)
                 })}
             </div>
