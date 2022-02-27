@@ -5,15 +5,18 @@ import * as bootstrap from "bootstrap";
 
 const Toast = (props) => {
     const [toastDetails, setToastDetails] = useState([
-        { message: 'Welcome To Skillark', type: 'warning', time: '' },
-        { message: 'Welcome To Skillark', type: 'success', time: '' },
-        { message: 'Welcome To Skillark', type: 'danger', time: '' }]);
+        // { message: 'Welcome To Skillark', type: 'warning', time: '' },
+        // { message: 'Welcome To Skillark', type: 'success', time: '' },
+        // { message: 'Welcome To Skillark', type: 'danger', time: '' }
+    ]);
 
-    const addNewMessage = (mess, type,timing) => {
-        // set defaulttime
-        timing == null ? (timing = 'just now') : (timing = timing)
-        setToastDetails([...toastDetails, { message: mess, type: type,time:timing }])
-        toastDetails.length === 3 ? handleRemove() : console.log()
+    const addNewMessage = (mess, type) => {
+        // set time
+        const d = new Date();
+        let timing = d.getHours() + ":" + d.getMinutes();
+
+        toastDetails.length === 2 ? handleRemove() : console.log()
+        setToastDetails([...toastDetails, { message: mess, type: type, time: timing }])
     }
     const [toastStatus, setToastStatus] = useState(false)
     useEffect(() => {
@@ -21,9 +24,9 @@ const Toast = (props) => {
     }, [toastDetails])
 
     var option = {
-        animation: true,
+        // animation: true,
         autohide: true,
-        delay: 6000,
+        delay: 8000,
     };
     // add toast
     function toastAdd() {
@@ -36,9 +39,8 @@ const Toast = (props) => {
 
 
     const handleRemove = () => {
-        setToastDetails(toastDetails.splice(1, 2))
+        setToastDetails(toastDetails.splice(0, 2))
     }
-    console.log(toastDetails);
 
     setTimeout(toastAdd, 500);
 
@@ -50,9 +52,9 @@ const Toast = (props) => {
 
             <div className="position-fixed bottom-0 end-0 p-3" style={{ zIndex: '10' }}>
                 {toastStatus && <>
-                    {toastDetails.map((items, index) => {
+                    {toastDetails.map((items) => {
                         return <>
-                            <div id="liveToast" className={`toast my-1 border-1 border-${items.type} bg-${items.type} bg-opacity-25`} role="alert" aria-live="assertive" aria-atomic="true">
+                            <div id="liveToast" className={`toast my-1 border-2 border-${items.type} bg-${items.type} bg-opacity-25`} role="alert" aria-live="assertive" aria-atomic="true">
                                 <div className="toast-header">
                                     <img src={logo} className="rounded" alt="logo" style={{ height: '20px' }} />
                                     {/* <strong>Skillark</strong> */}

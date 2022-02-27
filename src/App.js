@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './bootstrap/bootstrap.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import './bootstrap/bootstrap.css';
 import './App.css';
 import Loginmodule from './components/Loginmodule';
 import Contactus from './components/Contactus';
@@ -19,37 +20,43 @@ import Register from './components/Register';
 import Main from './common/Main';
 import ContextApp from './context/ContextApp';
 
+// context
+import Toast from './context/Toast'
+
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path='*' element={<NotFounds />} />
-        <Route path='' element={<Main />} >
-          <Route path='/' element={<Home />} />
-          <Route path='/trainings' element={<Courses />} />
-          <Route path='/careers' element={<Careers />} />
-          <Route path='/event' element={<Event />} />
-          <Route path='/contactus' element={<Contactus />} />
-          <Route path='/counselling' element={<Counselling />} />
-          <Route path='/counselling/:index' element={<CounsellingReg />} />
-        </Route>
-        <Route path="" element={<Loginmodule />} >
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Route>
-        <Route path="/ContextApp" element={<ContextApp />} ></Route>
+      {/* Toast for notification  */}
+      <Toast>
+        <Routes>
+          <Route path='*' element={<NotFounds />} />
+          <Route path='' element={<Main />} >
+            <Route path='/' element={<Home />} />
+            <Route path='/trainings' element={<Courses />} />
+            <Route path='/careers' element={<Careers />} />
+            <Route path='/event' element={<Event />} />
+            <Route path='/contactus' element={<Contactus />} />
+            <Route path='/counselling' element={<Counselling />} />
+            <Route path='/counselling/:index' element={<CounsellingReg />} />
+          </Route>
+          <Route path="" element={<Loginmodule />} >
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Route>
+          <Route path="/ContextApp" element={<ContextApp />} ></Route>
 
 
-        {CourseData.map((item) => {
-          return (<Route
-            path={`/course/${item.id}`}
-            element={<Course data={item} />}
-          />)
-        }
-        )}
-      </Routes>
+          {CourseData.map((item) => {
+            return (<Route
+              path={`/course/${item.id}`}
+              element={<Course data={item} />}
+            />)
+          }
+          )}
+        </Routes>
 
+      </Toast>
     </BrowserRouter>
   )
 }

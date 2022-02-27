@@ -6,12 +6,12 @@ import ScrollToTop from "react-scroll-to-top";
 
 export default function Navbar() {
     const [skaCookies, setskaCookies] = useState('');
-    useEffect(() => {
-        // document.cookie = `ska1234ska`
-        document.cookie.split('ska').map((value) => {
-            setskaCookies(value)
-        })
-    }, [])
+    // useEffect(() => {
+    //     // document.cookie = `ska1234ska`
+    //     document.cookie.split('ska').map((value) => {
+    //         setskaCookies(value)
+    //     })
+    // }, [])
     return (
         <>
             <ScrollToTop width='20px' height='20px' />
@@ -26,9 +26,6 @@ export default function Navbar() {
                     <div className="collapse navbar-collapse navbar-right" id="navbarNavAltMarkup">
                         <div className="nav navbar-nav ms-auto">
                             <ul className="navbar-nav mb-lg-0">
-                                <li className="nav-item mx-1">
-                                    <Link className="nav-link" to='/'>Home</Link>
-                                </li>
                                 <li className="nav-item mx-1">
                                     <Link className="nav-link" to='/trainings'>Live Trainings</Link>
                                 </li>
