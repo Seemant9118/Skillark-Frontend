@@ -9,6 +9,7 @@ import Contactus from './components/Contactus';
 import Careers from './components/Careers';
 import Home from './components/Home';
 import Course from './components/Course';
+import School from './components/School';
 import Courses from './components/Courses';
 import CourseData from './components/data/CourseData';
 import NotFounds from './components/NotFounds';
@@ -17,7 +18,10 @@ import CounsellingReg from './components/CounsellingReg';
 import Event from './components/Event';
 import Login from './components/Login';
 import Register from './components/Register';
+import AddBlog from './blogs/AddBlog';
+
 import Main from './common/Main';
+
 import ContextApp from './context/ContextApp';
 
 // context
@@ -33,13 +37,16 @@ export default function App() {
           <Route path='*' element={<NotFounds />} />
           <Route path='' element={<Main />} >
             <Route path='/' element={<Home />} />
+            <Route path='/blogs' element={<AddBlog />} />
             <Route path='/trainings' element={<Courses />} />
+            <Route path='/school' element={<School />} />
             <Route path='/careers' element={<Careers />} />
             <Route path='/event' element={<Event />} />
             <Route path='/contactus' element={<Contactus />} />
             <Route path='/counselling' element={<Counselling />} />
             <Route path='/counselling/:index' element={<CounsellingReg />} />
           </Route>
+          
           <Route path="" element={<Loginmodule />} >
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

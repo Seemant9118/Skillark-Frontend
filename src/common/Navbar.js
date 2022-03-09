@@ -30,6 +30,9 @@ export default function Navbar() {
                                     <Link className="nav-link" to='/trainings'>Live Trainings</Link>
                                 </li>
                                 <li className="nav-item mx-1">
+                                    <Link className="nav-link" to='/school'>School</Link>
+                                </li>
+                                <li className="nav-item mx-1">
                                     <Link className="nav-link" to='/counselling'>Career Counselling</Link>
                                 </li>
                                 <li className="nav-item mx-1">
@@ -44,10 +47,6 @@ export default function Navbar() {
                                 {skaCookies === '' &&
                                     <li className="nav-item">
                                         <Link className="nav-link" to='/login'>Log In</Link>
-                                    </li>}
-                                {skaCookies === '' &&
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to='/register'>Register</Link>
                                     </li>}
                                 {skaCookies && <li className="nav-item">
                                     <Link className="nav-link  rounded-circle bg-ska-secondary text-ska-primary" style={{ textDecoration: 'none', width: '40px' }}
