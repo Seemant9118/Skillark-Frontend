@@ -5,13 +5,10 @@ import ScrollToTop from "react-scroll-to-top";
 
 
 export default function Navbar() {
-    const [skaCookies, setskaCookies] = useState('');
-    // useEffect(() => {
-    //     // document.cookie = `ska1234ska`
-    //     document.cookie.split('ska').map((value) => {
-    //         setskaCookies(value)
-    //     })
-    // }, [])
+    const [skaSession, setskaSession] = useState('');
+    useEffect(() => {
+        setskaSession(sessionStorage.getItem('login'))
+    }, []);
     return (
         <>
             <ScrollToTop width='20px' height='20px' />
@@ -44,19 +41,29 @@ export default function Navbar() {
                                 <li className="nav-item mx-1">
                                     <Link className="nav-link" to='/event'>Event</Link>
                                 </li>
-                                {skaCookies === '' &&
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to='/login'>Log In</Link>
-                                    </li>}
-                                {skaCookies && <li className="nav-item">
-                                    <Link className="nav-link  rounded-circle bg-ska-secondary text-ska-primary" style={{ textDecoration: 'none', width: '40px' }}
-                                        data-bs-toggle="offcanvas" to="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                                        S
-                                    </Link>
+                                {!skaSession && <li className="nav-item">
+                                    <Link className="nav-link" to='/login'>Log In</Link>
                                 </li>
                                 }
+                                {skaSession &&
+                                    <li className="nav-item">
+                                        <div class="dropdown">
+                                            <Link className="nav-link  rounded-circle bg-ska-secondary text-ska-primary" style={{ textDecoration: 'none', width: '40px' }}
+                                                id="dropdownMenuLink" data-bs-toggle="dropdown" to="#" role="button" aria-expanded="false">
+                                                {sessionStorage.getItem("email").slice(0, 1).toUpperCase()}
+                                            </Link>
+                                            <ul class="ska-box dropdown-menu px-0" aria-labelledby="dropdownMenuLink">
+                                                <li><Link className="dropdown-item" to='/user'>
+                                                    <i class="bi bi-person-square" /> Profile</Link></li>
+                                                <li><a class="dropdown-item" href="#">
+                                                    <i class="bi bi-file-play" /> My Courses</a></li>
+                                                <li><Link className="dropdown-item" to='/logout'>
+                                                    <i class="bi bi-box-arrow-right" /> Log Out</Link></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                }
                             </ul>
-
                         </div>
                     </div>
                 </div>

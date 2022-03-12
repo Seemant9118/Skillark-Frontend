@@ -54,15 +54,16 @@ const Toast = (props) => {
                 {toastStatus && <>
                     {toastDetails.map((items) => {
                         return <>
-                            <div id="liveToast" className={`toast my-1 border-2 border-${items.type} bg-${items.type} bg-opacity-25`} role="alert" aria-live="assertive" aria-atomic="true">
-                                <div className="toast-header">
+                            <div id="liveToast" className={`toast my-1 border-1 border-${items.type}`}
+                             role="alert" aria-live="assertive" aria-atomic="true" style={{width:'250px'}}>
+                                <div className="toast-header pb-1">
                                     <img src={logo} className="rounded" alt="logo" style={{ height: '20px' }} />
                                     {/* <strong>Skillark</strong> */}
                                     <small className="ms-auto">{items.time}</small>
                                     <button type="button" onClick={handleRemove} className="btn-close text-end"
                                         data-bs-dismiss="toast" aria-label="Close"></button>
                                 </div>
-                                <div className="toast-body ">{items.message}</div>
+                                <div className={`toast-body pt-1 text-bolder text-${items.type}`}>{items.message}</div>
                             </div>
                         </>
                     })}

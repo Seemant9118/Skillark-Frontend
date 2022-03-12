@@ -1,31 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import Axios from 'axios';
+
 import EnrollForm from './EnrollForm';
 import Accordion from './Accordion';
+import CourseData from './data/CourseData';
 
 export default function Course(props) {
+  const index = useParams().index;
+  useEffect(() => {
+    console.log(index);
+    // Axios.post(`${PrivateData.IP}/`, index)
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   });
+  }, [])
 
   const [formState, setformState] = useState(false);
 
   const goToEnrollForm = () => {
     setformState(true)
   }
-  const title = props.data.title.replaceAll(' ','_')
+  const title = CourseData[index - 1].title.replaceAll(' ', '_')
   return (
     <>
       <div>
         {/* form */}
-        {formState && <EnrollForm price={props.data.price} title={title} />}
+        {formState && <EnrollForm price={CourseData[index - 1].price} title={title} />}
 
         <div className='row align-items-center justify-content-center m-0'>
           <div className='col-md-5 col-10 order-md-5'>
             <img className='float-end' style={{ height: "400px" }}
-              src={props.data.img} alt='icon' />
+              src={CourseData[index - 1].img} alt='icon' />
           </div>
           <div className='col-md-5 col-sm-10  order-md-1'>
             <div className=" mx-5 my-3 p-4">
-              {/* <h1 className='text-ska-primary'>{props.data.title}</h1> */}
-              <p>{props.data.desc}</p>
-              <h4>Price: ₹.{props.data.price}</h4>
+              {/* <h1 className='text-ska-primary'>{CourseData[index-1].title}</h1> */}
+              <p>{CourseData[index - 1].desc}</p>
+              <h4>Price: ₹.{CourseData[index - 1].price}</h4>
               <div class="btn btn-ska-primary-dark"
                 onClick={() => goToEnrollForm()}
               >Enroll Now</div>
@@ -35,7 +47,7 @@ export default function Course(props) {
         <hr />
         <div className='row justify-content-center mx-0'>
           <div className='col-lg-10 col-sm-10  order-lg-1'>
-            {props.data.accordion ? props.data.accordion.map((itemss, indexs) => {
+            {CourseData[index - 1].accordion ? CourseData[index - 1].accordion.map((itemss, indexs) => {
               return (<div className='mb-5 ska-box px-5 py-3'>
                 <div className='h3 my-3 text-ska-primary-dark'>{itemss.head ? itemss.head : ''}</div>
                 <div class="accordion accordion-flush" id={`accordionFlush${indexs}`}>
@@ -52,7 +64,7 @@ export default function Course(props) {
               </div>)
             }) : ''}
 
-            {props.data.Lists.map((items) => {
+            {CourseData[index - 1].Lists.map((items) => {
               return (<div className='mb-5 ska-box px-5 py-3'>
                 <div className='h3 my-3 text-ska-primary-dark'>{items.name}</div>
                 <div className='row'>

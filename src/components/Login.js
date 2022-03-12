@@ -22,17 +22,16 @@ export default function Login() {
     const handleForgotPassword = () => {
         setStatusForm('forgotPassword')
     }
-
     const handleLogIn = event => {
         Axios.post(`${PrivateData.IP}/authentication/login`, details)
             .then(function (res) {
-                // console.log(res.data);
                 if (res.data === false) {
                     noti.addNewMessage('Email or Password Not match', 'danger')
                     setStyle({ emailCSS: 'border-danger is-invalid', passwordCSS: 'border-danger is-invalid' })
                 } else {
                     noti.addNewMessage('login in successfully', 'success')
-                    // document.cookie = `ska${res.data}ska`
+                    sessionStorage.setItem('login', true);
+                    sessionStorage.setItem('email', details.email);
                     navigate('/')
                 }
             });

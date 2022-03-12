@@ -1,3 +1,28 @@
+.rec-dot_active {
+    background-color: var(--bs-ska-primary-light) !important;
+    box-shadow: 0 0 1px 3px var(--bs-ska-primary) !important;
+}
+.rec-dot:focus,
+.rec-dot:hover {
+    box-shadow: 0 0 1px 3px var(--bs-ska-primary-dark) !important;
+}
+.rec-dot_active:focus,
+.rec-dot_active:hover {
+    background-color: var(--bs-ska-primary-dark) !important;
+    box-shadow: 0 0 1px 3px var(--bs-ska-primary) !important;
+}
+
+.rec-arrow {
+    background-color: var(--bs-ska-primary-light) !important;
+    transition: all 0.3s ease;
+    font-size: 1.1rem !important;
+    color: white !important;
+    line-height: 1.7rem !important;
+   
+}
+.rec-arrow:hover:not(:disabled) {
+    transform: scale(1.2);
+}
 /* multi used classess */
 .glass{
     background : linear-gradient(315deg,rgba(224, 224, 224,.4),rgba(255, 255, 255,.6));

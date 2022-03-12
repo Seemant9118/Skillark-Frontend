@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import PrivateData from './data/PrivateData';
+import Axios from "axios";
 
 export default function SlidOnPhone(props) {
+    const [slidData, setSlidData] = useState([]);
+    useEffect(() => {
+        Axios.get(`${PrivateData.IP}/instructor/cards`)
+            .then((res) => {
+                // handle success
+                setSlidData(res.data);
+            })
+            .catch((error) => {
+                // handle error
+                console.log(error);
+            })
+    }, []);
 
     const removeActive = () => {
         var div = document.querySelectorAll(".sectionP");
@@ -50,20 +64,20 @@ export default function SlidOnPhone(props) {
             <div className='row align-items-center justify-content-center m-0'>
                 <div className='h1 text-center text-ska-primary'>Our Top Rated Instructors</div>
                 <div className="col-md-8 col-sm-12">
-                    {props.SlidData.data.map((item, index) => {
-                        return (<div className={`sectionP sectionP${index}`} 
-                        onMouseEnter={() => { addActive(index) }}>
-                            <h2>{item.name}</h2>
+                    {slidData.map((item, index) => {
+                        return (<div className={`sectionP sectionP${index}`}
+                            onMouseEnter={() => { addActive(index) }}>
+                            <h2>{item.instructorName}</h2>
                             <div className='boxP'>
-                                <p>{item.title}<br />
+                                <p>{item.instructorDesignation}<br />
                                     {item.profession}</p>
                                 <button className="btn btn-primary">Enroll Now</button>
                             </div>
                             <div class="boxdescP">
-                                {item.desc}
+                                {item.instructorAbout}
                             </div>
-                            <img style={{borderTopLeftRadius:'20px'}}
-                            className="inst_imgP" src={item.img} alt='img' />
+                            <img style={{ borderTopLeftRadius: '20px' }}
+                                className="inst_imgP" src={item.instructorImage} alt='instructorImage' />
                         </div>)
                     })}
                 </div>

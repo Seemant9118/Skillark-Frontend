@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 import './bootstrap/bootstrap.css';
 import './App.css';
 import Loginmodule from './components/Loginmodule';
@@ -11,7 +11,6 @@ import Home from './components/Home';
 import Course from './components/Course';
 import School from './components/School';
 import Courses from './components/Courses';
-import CourseData from './components/data/CourseData';
 import NotFounds from './components/NotFounds';
 import Counselling from './components/Counselling';
 import CounsellingReg from './components/CounsellingReg';
@@ -21,11 +20,13 @@ import Register from './components/Register';
 import AddBlog from './blogs/AddBlog';
 
 import Main from './common/Main';
+import Logout from './common/Logout';
 
 import ContextApp from './context/ContextApp';
 
 // context
 import Toast from './context/Toast'
+import Profile from './user/Profile';
 
 
 export default function App() {
@@ -35,6 +36,8 @@ export default function App() {
       <Toast>
         <Routes>
           <Route path='*' element={<NotFounds />} />
+
+
           <Route path='' element={<Main />} >
             <Route path='/' element={<Home />} />
             <Route path='/blogs' element={<AddBlog />} />
@@ -43,24 +46,22 @@ export default function App() {
             <Route path='/careers' element={<Careers />} />
             <Route path='/event' element={<Event />} />
             <Route path='/contactus' element={<Contactus />} />
+            <Route path='/user' element={<Profile />} />
             <Route path='/counselling' element={<Counselling />} />
             <Route path='/counselling/:index' element={<CounsellingReg />} />
+            <Route path='/course/:index' element={<Course />} />
+            <Route path='/logout' element={<Logout />} />
           </Route>
-          
+
+
           <Route path="" element={<Loginmodule />} >
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Route>
+
+
           <Route path="/ContextApp" element={<ContextApp />} ></Route>
 
-
-          {CourseData.map((item) => {
-            return (<Route
-              path={`/course/${item.id}`}
-              element={<Course data={item} />}
-            />)
-          }
-          )}
         </Routes>
 
       </Toast>

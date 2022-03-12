@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import PrivateData from './data/PrivateData';
+import Axios from "axios";
 import img1 from './img/banner-aws.png';
 import img2 from './img/banner-reactjs.png';
 import img3 from './img/banner-devops.png';
 import Card from './Card';
+import Cards from './Cards';
 import CourseData from './data/CourseData';
+import IMG from './img/style/card-banner.png';
 
 
 export default function Courses() {
+  const [courseData, setCourseData] = useState([]);
+  useEffect(() => {
+    Axios.get(`${PrivateData.IP}/course/cards`)
+      .then((res) => {
+        // handle success
+        setCourseData(res.data);
+      })
+      .catch((error) => {
+        // handle error
+        console.log(error);
+      })
+  }, []);
+  console.log(courseData);
   return (
     <div>
       <div id="carouselForRecentCourse" className="carousel carousel-dark slide" data-bs-ride="carousel" style={{ width: '100%' }}>
@@ -54,7 +71,6 @@ export default function Courses() {
         </button>
       </div>
 
-
       <div className="row mx-5  text-center px-5">
         <div className='h1 title text-ska-primary-dark'>Courses</div>
         {CourseData.map((item, index) => {
@@ -71,6 +87,19 @@ export default function Courses() {
         }
         )}
       </div>
+
+      <div style={{
+        background: `linear-gradient( 135deg,rgba( 3, 133, 120, 0.349),rgba( 3, 133, 120, 0.567)), url(${IMG}), no-repeat, 50%, 50%`,
+        backgroundSize: 'cover',
+        height: '550px',
+        width: '100 %',
+        boaderRadius: '10px'
+      }} className='px-5'>
+        <div className='h1 title text-ska-primary-dark text-center pt-3'>Courses</div>
+        <Cards data={CourseData} />
+      </div>
+      <hr />
+
     </div>
   )
 }

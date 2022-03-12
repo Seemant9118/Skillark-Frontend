@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import Counsellors from './data/counsellorData'
 
 function CounsellingReg(props) {
-  const index = useParams().index
+  const index = useParams().index;
 
   const navigate = useNavigate();
   const handleBack = () => {

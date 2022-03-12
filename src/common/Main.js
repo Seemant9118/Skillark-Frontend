@@ -4,8 +4,14 @@ import Footer from './Footer'
 import Navbar from './Navbar'
 
 export default function Main() {
-    // const location = useLocation();
-    // console.log(location);
+    const student = ["/user",]
+
+    const location = useLocation().pathname;
+    console.log(location);
+    console.log(student.includes(location));
+    if(student.includes(location)){
+        alert("shiva")
+    }
 
     return <>
         <Navbar />

@@ -1,6 +1,6 @@
 const PrivateData = {
-    // IP:'http://44.201.78.84:3000',
-    IP : 'https://skillark.org',
+    IP:'http://localhost:3000',
+    // IP : 'https://skillark.org',
     email:'hroperations@skillark.org',
     instagram:'https://www.instagram.com/skill_ark/',
     linkedin:'https://www.linkedin.com/in/skillark-pvt-ltd-40b61222a/',

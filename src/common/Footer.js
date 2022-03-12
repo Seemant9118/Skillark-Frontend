@@ -6,7 +6,7 @@ import PrivateData from '../components/data/PrivateData';
 
 export default function Footer() {
     return (
-        <div className='bg-secondary p-2 pt-3'>
+        <div className='bg-ska-primary text-white p-2 pt-3' id='footer'>
             <div className='row align-items-center justify-content-evenly mx-0'>
                 <div className='col-md-4'>
                     <div className='row justify-content-start mx-0'>

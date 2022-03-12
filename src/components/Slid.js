@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import PrivateData from './data/PrivateData';
+import Axios from "axios";
 
 export default function Slid(props) {
-
+    const [slidData, setSlidData] = useState([]);
+    useEffect(() => {
+        Axios.get(`${PrivateData.IP}/instructor/cards`)
+            .then((res) => {
+                // handle success
+                setSlidData(res.data);
+            })
+            .catch((error) => {
+                // handle error
+                console.log(error);
+            })
+    }, []);
     const removeActive = () => {
         var div = document.querySelectorAll(".section");
         div.forEach((value, index) => {
@@ -49,19 +62,19 @@ export default function Slid(props) {
         <div className='d-none d-lg-block mt-3 p-3'>
             <div className='h1 text-center text-ska-primary'>Our Top Rated Instructors</div>
             <div className="main">
-                {props.SlidData.data.map((item, index) => {
+                {slidData.map((item, index) => {
                     return (<div className={`section section${index}`} onMouseEnter={() => { addActive(index) }}>
-                        <h2>{item.name}</h2>
+                        <h2>{item.instructorName}</h2>
                         <div className="box">
-                            <p>{item.title}<br />
+                            <p>{item.instructorDesignation}<br />
                                 {item.profession}</p>
                             <button className="btn btn-ska-secondary">Enroll Now</button>
                         </div>
                         <div className="boxdesc">
-                            {item.desc}
+                            {item.instructorAbout}
                         </div>
-                        <img  style={{borderTopLeftRadius:'20px'}}
-                        className="inst_img " src={item.img}  alt='img'/>
+                        <img style={{ borderTopLeftRadius: '20px' }}
+                            className="inst_img " src={item.instructorImage} alt='instructorImage' />
                     </div>)
                 })}
             </div>
