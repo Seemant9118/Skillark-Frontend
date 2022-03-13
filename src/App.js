@@ -27,6 +27,8 @@ import ContextApp from './context/ContextApp';
 // context
 import Toast from './context/Toast'
 import Profile from './user/Profile';
+import Dashboard from './user/Dashboard';
+import EnrollCourse from './user/EnrollCourse';
 
 
 export default function App() {
@@ -46,18 +48,22 @@ export default function App() {
             <Route path='/careers' element={<Careers />} />
             <Route path='/event' element={<Event />} />
             <Route path='/contactus' element={<Contactus />} />
-            <Route path='/user' element={<Profile />} />
             <Route path='/counselling' element={<Counselling />} />
             <Route path='/counselling/:index' element={<CounsellingReg />} />
             <Route path='/course/:index' element={<Course />} />
-            <Route path='/logout' element={<Logout />} />
-          </Route>
 
+            <Route path='' element={<Dashboard />} >
+              <Route path='/logout' element={<Logout />} />
+              <Route path='/user/profile' element={<Profile />} />
+              <Route path='/user/mycourse' element={<EnrollCourse />} />
+            </Route>
+          </Route>
 
           <Route path="" element={<Loginmodule />} >
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Route>
+
 
 
           <Route path="/ContextApp" element={<ContextApp />} ></Route>

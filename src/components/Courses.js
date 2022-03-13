@@ -5,7 +5,7 @@ import img1 from './img/banner-aws.png';
 import img2 from './img/banner-reactjs.png';
 import img3 from './img/banner-devops.png';
 import Card from './Card';
-import Cards from './Cards';
+import Cards from '../common/Cards';
 import CourseData from './data/CourseData';
 import IMG from './img/style/card-banner.png';
 

@@ -3,7 +3,7 @@ import PrivateData from './data/PrivateData';
 import Axios from "axios";
 import Typewriter from 'typewriter-effect';
 import SchoolData from './data/SchoolData';
-import Cards from './Cards';
+import Cards from '../common/Cards';
 import IMG from './img/style/card-banner.png';
 import Counsell from './img/style/event.png';
 

@@ -70,8 +70,8 @@ export default function SlidOnPhone(props) {
                             <h2>{item.instructorName}</h2>
                             <div className='boxP'>
                                 <p>{item.instructorDesignation}<br />
-                                    {item.profession}</p>
-                                <button className="btn btn-primary">Enroll Now</button>
+                                    {item.instructorDesignation}</p>
+                                <button className="btn btn-ska-secondary">Enroll Now</button>
                             </div>
                             <div class="boxdescP">
                                 {item.instructorAbout}

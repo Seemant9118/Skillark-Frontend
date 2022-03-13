@@ -24,7 +24,7 @@ export default function Loginmodule(props) {
             <div className='row align-items-center'>
               <div className='col-10 ps-5'>
                 <img src={logoimage} className='img-fluid' alt='logo'
-                  style={{ height: '100px', marginBottom: '10%' }} />
+                  style={{ height: '100px' }} />
               </div>
             </div>
             <div className='h2 text-start ms-5 mt-4 fw-bold'>Hey There, Welcome!</div>

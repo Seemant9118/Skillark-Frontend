@@ -53,10 +53,10 @@ export default function Navbar() {
                                                 {sessionStorage.getItem("email").slice(0, 1).toUpperCase()}
                                             </Link>
                                             <ul class="ska-box dropdown-menu px-0" aria-labelledby="dropdownMenuLink">
-                                                <li><Link className="dropdown-item" to='/user'>
+                                                <li><Link className="dropdown-item" to='/user/profile'>
                                                     <i class="bi bi-person-square" /> Profile</Link></li>
-                                                <li><a class="dropdown-item" href="#">
-                                                    <i class="bi bi-file-play" /> My Courses</a></li>
+                                                <li><Link class="dropdown-item" to='/user/mycourse'>
+                                                    <i class="bi bi-file-play" /> My Courses</Link></li>
                                                 <li><Link className="dropdown-item" to='/logout'>
                                                     <i class="bi bi-box-arrow-right" /> Log Out</Link></li>
                                             </ul>

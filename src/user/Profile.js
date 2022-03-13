@@ -25,12 +25,11 @@ export default function Profile() {
         e.preventDefault();
     };
     return <>
-        <div className='h2 text-ska-primary my-3 mx-5'>My Profile</div>
         <div className='row align-items-center justify-content-center m-0'>
             <div className='col-md-2 col-4 mb-3'>
                 <img className="img-fluid rounded-circle" src={IMG} alt='img' />
             </div>
-
+            
             <hr />
 
             <div className='col-md-10'>
