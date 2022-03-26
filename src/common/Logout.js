@@ -5,11 +5,10 @@ import toastContext from '../context/toastContext';
 export default function Logout() {
      
     const noti = useContext(toastContext);
-    noti.addNewMessage('logout in successfully', 'warning');
+    noti.addNewMessage('logout', 'warning');
     sessionStorage.removeItem("login");
     const navigate = useNavigate();
-    // navigate('/')
-    window.location.replace("/")
+    navigate('/')
     return <>
         {sessionStorage.getItem("email")}
         Logout

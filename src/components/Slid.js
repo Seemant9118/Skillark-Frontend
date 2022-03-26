@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PrivateData from './data/PrivateData';
 import Axios from "axios";
+import { Link } from 'react-router-dom';
 
 export default function Slid(props) {
     const [slidData, setSlidData] = useState([]);
@@ -57,24 +58,28 @@ export default function Slid(props) {
 
 
     // default Active
-    setTimeout(() => addActive(1), 100)
+    setTimeout(() => addActive(1), 1000)
     return (
         <div className='d-none d-lg-block mt-3 p-3'>
             <div className='h1 text-center text-ska-primary'>Our Top Rated Instructors</div>
             <div className="main">
                 {slidData.map((item, index) => {
                     return (<div className={`section section${index}`} onMouseEnter={() => { addActive(index) }}>
-                        <h2>{item.instructorName}</h2>
+                        <h2>{item.name}</h2>
                         <div className="box">
-                            <p>{item.instructorDesignation}<br />
-                                {item.profession}</p>
-                            <button className="btn btn-ska-secondary">Enroll Now</button>
+                            <p>{item.course.name}</p>
+                            <Link className="btn btn-ska-secondary"
+                                to={{
+                                    pathname: `/course/${item.course.code}`,
+                                    state: `${item.course.code}`
+                                }}>Enroll Now</Link>
                         </div>
                         <div className="boxdesc">
-                            {item.instructorAbout}
+                            {item.designation}<br />
+                            {item.description}
                         </div>
                         <img style={{ borderTopLeftRadius: '20px' }}
-                            className="inst_img " src={item.instructorImage} alt='instructorImage' />
+                            className="inst_img " src={item.image} alt='instructorImage' />
                     </div>)
                 })}
             </div>

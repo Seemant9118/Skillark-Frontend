@@ -5,8 +5,8 @@ import Sidebar from './Sidebar'
 export default function Dashboard() {
     return <div className='row m-0'>
         <div className='d-block d-lg-none col-1'>
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft">
-            <i class="bi bi-list"></i></button>
+            <button class="btn btn-ska-primary-light mt-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft">
+            <i class="bi  bi-three-dots-vertical text-white"></i></button>
 
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel"
                 style={{ width: '250px', }}>
@@ -20,7 +20,7 @@ export default function Dashboard() {
         <div className='d-none d-lg-block col-lg-3 p-0'>
             <Sidebar />
         </div>
-        <div className='col-lg-9'>
+        <div className='col-lg-9 ska-bg'>
             <Outlet />
         </div>
     </div>

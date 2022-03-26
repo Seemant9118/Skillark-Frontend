@@ -8,7 +8,7 @@ import Copyright from '../common/Copyright';
 
 export default function Loginmodule(props) {
   return (
-    <div className='container-fluid' style={{ backgroundColor: '#e8fff7', minHeight: '100vh', }}>
+    <div className='container-fluid ska-bg' style={{ minHeight: '100vh', }}>
       <div className='row align-items-center'>
         <div className='col-lg-6 col-md-9 col-sm-10 d-none d-lg-block'
           style={{

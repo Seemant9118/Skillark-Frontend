@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import UploadImage from '../common/UploadImage';
 import IMG from '../components/img/img.png'
 
 export default function Profile() {
@@ -29,7 +30,7 @@ export default function Profile() {
             <div className='col-md-2 col-4 mb-3'>
                 <img className="img-fluid rounded-circle" src={IMG} alt='img' />
             </div>
-            
+            {/* <UploadImage/> */}
             <hr />
 
             <div className='col-md-10'>
@@ -56,14 +57,14 @@ export default function Profile() {
                                 className="form-control form-control-lg border-ska-primary border-2 rounded-pill "
                                 value={details.email} onChange={(event) => setDetails({
                                     ...details, email: event.target.value
-                                })} required />
+                                })} required disabled/>
                         </div>
                         <div className="col">
                             <input type="tel" pattern="[5-9]{1}[0-9]{9}" placeholder="Phone"
                                 className="form-control form-control-lg border-ska-primary border-2 rounded-pill"
                                 value={details.phone} onChange={(event) => setDetails({
                                     ...details, phone: event.target.value
-                                })} required />
+                                })} required/>
                         </div>
                     </div>
                     <div className="row mb-3">

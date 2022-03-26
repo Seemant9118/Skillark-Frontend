@@ -4,7 +4,7 @@ import { Link, Outlet } from 'react-router-dom'
 export default function Sidebar() {
     return <>
 
-        <div className="d-flex flex-column flex-shrink-0 p-5 pe-0 bg-light" style={{ minHeight: '50vh', }}>
+        <div className="d-flex flex-column flex-shrink-0 p-5 pe-0" style={{ minHeight: '100vh', }}>
             <ul className="nav nav-pills flex-column mb-auto">
                 <li>
                     <Link to="/user/mycourse" className="nav-link link-dark">

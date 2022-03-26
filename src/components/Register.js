@@ -51,6 +51,7 @@ export default function Register() {
                     navigate('/login')
                 } else {
                     alert('Sorry')
+                    console.log(res.data);
                 }
             })
         e.preventDefault();

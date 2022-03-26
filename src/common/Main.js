@@ -1,22 +1,28 @@
-import React from 'react'
-import { Outlet, useLocation } from 'react-router-dom'
-import Footer from './Footer'
-import Navbar from './Navbar'
+import React,{ useContext } from 'react'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
+import Footer from './Footer';
+import Navbar from './Navbar';
+import toastContext from '../context/toastContext';
 
 export default function Main() {
-    const student = ["/user",]
+    const noti = useContext(toastContext);
+    const navigate = useNavigate();
+    const student = ["/user/profile","/user/mycourse"]
 
     const location = useLocation().pathname;
-    console.log(location);
-    console.log(student.includes(location));
-    if(student.includes(location)){
-        alert("shiva")
+    // console.log(location);
+    // console.log(student.includes(location));
+    // console.log(sessionStorage.getItem('login')===null);
+    if (student.includes(location) && sessionStorage.getItem('login')===null) {
+        noti.addNewMessage('Login first', 'danger');
+        navigate('/login')
     }
+
 
     return <>
         <Navbar />
 
-            <Outlet />
+        <Outlet />
 
         <Footer />
     </>

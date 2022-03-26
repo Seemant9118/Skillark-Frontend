@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PrivateData from './data/PrivateData';
 import Axios from "axios";
+import { Link } from 'react-router-dom';
 
 export default function SlidOnPhone(props) {
     const [slidData, setSlidData] = useState([]);
@@ -58,7 +59,7 @@ export default function SlidOnPhone(props) {
 
 
     // default Active
-    setTimeout(() => addActive(1), 100)
+    setTimeout(() => addActive(1), 1000)
     return (
         <div className=' d-sm-block d-lg-none mt-3 p-3'>
             <div className='row align-items-center justify-content-center m-0'>
@@ -67,17 +68,21 @@ export default function SlidOnPhone(props) {
                     {slidData.map((item, index) => {
                         return (<div className={`sectionP sectionP${index}`}
                             onMouseEnter={() => { addActive(index) }}>
-                            <h2>{item.instructorName}</h2>
+                            <h2>{item.name}</h2>
                             <div className='boxP'>
-                                <p>{item.instructorDesignation}<br />
-                                    {item.instructorDesignation}</p>
-                                <button className="btn btn-ska-secondary">Enroll Now</button>
+                                <p>{item.course.name}</p>
+                                <Link className="btn btn-ska-secondary"
+                                    to={{
+                                        pathname: `/course/${item.course.code}`,
+                                        state: `${item.course.code}`
+                                    }}>Enroll Now</Link>
                             </div>
                             <div class="boxdescP">
-                                {item.instructorAbout}
+                                {item.designation}<br />
+                                {item.description}
                             </div>
                             <img style={{ borderTopLeftRadius: '20px' }}
-                                className="inst_imgP" src={item.instructorImage} alt='instructorImage' />
+                                className="inst_imgP" src={item.image} alt='instructorImage' />
                         </div>)
                     })}
                 </div>
