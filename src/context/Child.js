@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
-import toastContext from './toastContext'
+import { uploadImgContext } from './skaContext'
 
 export default function Child() {
-    const a = useContext(toastContext)
+    const a = useContext(uploadImgContext);
     const handleButton = () => {
-        a.addNewMessage('shiva','danger')
+        a.handlePopup();
+        console.log(a.awsLink);
     }
     return (
         <div>

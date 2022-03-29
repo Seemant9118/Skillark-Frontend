@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function Sidebar() {
     return <>
@@ -13,21 +13,21 @@ export default function Sidebar() {
                     </Link>
                 </li>
                 <li>
-                    <Link to="#" className="nav-link link-dark">
-                        <i className="bi bi-speedometer2 me-2" />
-                        Dashboard
-                    </Link>
-                </li>
-                <li>
                     <Link to="/user/profile" className="nav-link link-dark">
                         <i className="bi bi-person-square me-2" />
                         Profile
                     </Link>
                 </li>
                 <li>
-                    <Link to="#" className="nav-link link-dark">
-                        <i class="bi bi-gear-fill me-2" />
-                        Customers
+                    <Link to="/user/contact" className="nav-link link-dark">
+                        <i class="bi bi-envelope-fill me-2" />
+                        Contact
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/user/notification" className="nav-link link-dark">
+                        <i className="bi bi-bell-fill me-2" />
+                        Notification
                     </Link>
                 </li>
             </ul>

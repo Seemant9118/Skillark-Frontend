@@ -46,7 +46,7 @@ export default function Navbar() {
                                         <div class="dropdown">
                                             <Link className="nav-link  rounded-circle bg-ska-secondary text-ska-primary" style={{ textDecoration: 'none', width: '40px' }}
                                                 id="dropdownMenuLink" data-bs-toggle="dropdown" to="#" role="button" aria-expanded="false">
-                                                {sessionStorage.getItem("email").slice(0, 1).toUpperCase()}
+                                                {JSON.parse(sessionStorage['myDetails']).firstName.slice(0, 1).toUpperCase()}
                                             </Link>
                                             <ul class="ska-box dropdown-menu px-0" aria-labelledby="dropdownMenuLink">
                                                 <li><Link className="dropdown-item" to='/user/profile'>

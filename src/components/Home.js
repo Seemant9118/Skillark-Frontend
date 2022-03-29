@@ -83,7 +83,7 @@ export default function Home() {
                 </div>
 
             </div>
-            <Slid SlidData={SlidData} />
-            <SlidOnPhone SlidData={SlidData} />
+            {/* <Slid SlidData={SlidData} />
+            <SlidOnPhone SlidData={SlidData} /> */}
         </>);
 }

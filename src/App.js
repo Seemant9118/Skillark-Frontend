@@ -22,55 +22,60 @@ import AddBlog from './blogs/AddBlog';
 import Main from './common/Main';
 import Logout from './common/Logout';
 
-import ContextApp from './context/ContextApp';
+import Profile from './user/Profile';
+import Dashboard from './user/Dashboard';
+import Contact from './user/Contact';
+import Notification from './user/Notification';
+import EnrollCourse from './user/EnrollCourse';
 
 // context
 import Toast from './context/Toast'
-import Profile from './user/Profile';
-import Dashboard from './user/Dashboard';
-import EnrollCourse from './user/EnrollCourse';
-
+import ContextApp from './context/ContextApp';
+import UploadImage from './context/UploadImage';
 
 export default function App() {
   return (
     <BrowserRouter>
       {/* Toast for notification  */}
-      <Toast>
-        <Routes>
-          <Route path='*' element={<NotFounds />} />
+      <UploadImage>
+        <Toast>
+          <Routes>
+            <Route path='*' element={<NotFounds />} />
 
 
-          <Route path='' element={<Main />} >
-            <Route path='/' element={<Home />} />
-            <Route path='/blogs' element={<AddBlog />} />
-            <Route path='/trainings' element={<Courses />} />
-            <Route path='/school' element={<School />} />
-            <Route path='/careers' element={<Careers />} />
-            <Route path='/event' element={<Event />} />
-            <Route path='/contactus' element={<Contactus />} />
-            <Route path='/counselling' element={<Counselling />} />
-            <Route path='/counselling/:index' element={<CounsellingReg />} />
-            <Route path='/course/:index' element={<Course />} />
+            <Route path='' element={<Main />} >
+              <Route path='/' element={<Home />} />
+              <Route path='/blogs' element={<AddBlog />} />
+              <Route path='/trainings' element={<Courses />} />
+              <Route path='/school' element={<School />} />
+              <Route path='/careers' element={<Careers />} />
+              <Route path='/event' element={<Event />} />
+              <Route path='/contactus' element={<Contactus />} />
+              <Route path='/counselling' element={<Counselling />} />
+              <Route path='/counselling/:index' element={<CounsellingReg />} />
+              <Route path='/course/:index' element={<Course />} />
 
-            <Route path='' element={<Dashboard />} >
-              <Route path='/logout' element={<Logout />} />
-              <Route path='/user/profile' element={<Profile />} />
-              <Route path='/user/mycourse' element={<EnrollCourse />} />
+              <Route path='' element={<Dashboard />} >
+                <Route path='/logout' element={<Logout />} />
+                <Route path='/user/profile' element={<Profile />} />
+                <Route path='/user/mycourse' element={<EnrollCourse />} />
+                <Route path='/user/notification' element={<Notification />} />
+                <Route path='/user/contact' element={<Contact />} />
+              </Route>
             </Route>
-          </Route>
 
-          <Route path="" element={<Loginmodule />} >
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Route>
-
+            <Route path="" element={<Loginmodule />} >
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            </Route>
 
 
-          <Route path="/ContextApp" element={<ContextApp />} ></Route>
 
-        </Routes>
+            <Route path="/ContextApp" element={<ContextApp />} ></Route>
 
-      </Toast>
+          </Routes>
+        </Toast>
+      </UploadImage>
     </BrowserRouter>
   )
 }

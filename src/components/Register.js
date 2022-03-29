@@ -16,6 +16,7 @@ export default function Register() {
             phone: '',
             password: '',
             password1: '',
+            image:'https://skillark-assets.s3.amazonaws.com/profiles/1648526000530avatar.png',
         });
     const [style, setStyle] = useState({ otpCSS: '', passwordCSS: '' })
 
@@ -50,8 +51,7 @@ export default function Register() {
                 if (res.data === true) {
                     navigate('/login')
                 } else {
-                    alert('Sorry')
-                    console.log(res.data);
+                    alert('Something went wrong')
                 }
             })
         e.preventDefault();

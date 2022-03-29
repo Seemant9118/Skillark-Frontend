@@ -2,12 +2,12 @@ import React,{ useContext } from 'react'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import Footer from './Footer';
 import Navbar from './Navbar';
-import toastContext from '../context/toastContext';
+import {toastContext} from '../context/skaContext';
 
 export default function Main() {
     const noti = useContext(toastContext);
     const navigate = useNavigate();
-    const student = ["/user/profile","/user/mycourse"]
+    const student = ["/user/mycourse"]
 
     const location = useLocation().pathname;
     // console.log(location);

@@ -2,11 +2,10 @@ import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Axios from "axios";
 import PrivateData from './data/PrivateData';
-import toastContext from '../context/toastContext'
+import { toastContext } from '../context/skaContext'
 
 export default function Login() {
     const noti = useContext(toastContext);
-
     const navigate = useNavigate();
     const [statusForm, setStatusForm] = useState("login");
     const [OTP, setOTP] = useState();
@@ -31,7 +30,9 @@ export default function Login() {
                 } else {
                     noti.addNewMessage('login in successfully', 'success')
                     sessionStorage.setItem('login', true);
-                    sessionStorage.setItem('email', details.email);
+                    sessionStorage.setItem('email', res.data[0].email);
+                    sessionStorage['myDetails'] = JSON.stringify(res.data[0]);
+                    
                     navigate('/')
                 }
             });
@@ -39,7 +40,7 @@ export default function Login() {
     };
     const handleEmail = (e) => {
         setStatusForm("OTP")
-        Axios.post(`${PrivateData.IP}/authentication/forgetPassword`, { email: details.email })
+        Axios.post(`${PrivateData.IP}/authentication/forgetpassword`, { email: details.email })
             .then(function (res) {
                 // console.log(res.data);
                 if (res.data === false) {
@@ -62,6 +63,10 @@ export default function Login() {
         e.preventDefault();
     }
     const handleResetPassword = (e) => {
+        Axios.post(`${PrivateData.IP}/authentication/update`, details)
+            .then(function (res) {
+                alert('password updated')
+            });
         setStatusForm("login")
     }
 
@@ -145,13 +150,13 @@ export default function Login() {
                                 ...details, password: event.target.value
                             })} required />
                     </div>
-                    <div className='row mb-3'>
+                    {/* <div className='row mb-3'>
                         <input type="password" placeholder="Password"
                             className="form-control form-control-lg border-ska-primary border-2 rounded-pill border-danger is-invalid"
                             value={details.password1} onChange={(event) => setDetails({
                                 ...details, password1: event.target.value
                             })} required />
-                    </div>
+                    </div> */}
                     <div className="d-grid gap-2 col-10 m-2 mx-auto ">
                         <button type="submit" className="btn btn-ska-primary-dark rounded-pill "
                         >Confirm</button>
