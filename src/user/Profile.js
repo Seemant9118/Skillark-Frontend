@@ -6,18 +6,15 @@ import Axios from "axios";
 
 export default function Profile() {
 
-var myVariable = {a:[1,2,3,4], b:"some text"};
-sessionStorage['myvariable'] = JSON.stringify(myVariable);
-var readValue = JSON.parse(sessionStorage['myvariable']);
-console.log(readValue);
+    // var myVariable = {a:[1,2,3,4], b:"some text"};
+    // sessionStorage['myvariable'] = JSON.stringify(myVariable);
+    // var readValue = JSON.parse(sessionStorage['myvariable']);
+    // console.log(readValue);
 
 
     const a = useContext(uploadImgContext);
     const handleUploadimg = () => {
         a.handlePopup();
-        setDetails({
-            ...details, image: a.awsLink
-        })
     }
     const [details, setDetails] =
         useState({
@@ -25,12 +22,16 @@ console.log(readValue);
             firstName: JSON.parse(sessionStorage['myDetails']).firstName,
             lastName: JSON.parse(sessionStorage['myDetails']).lastName,
             phone: JSON.parse(sessionStorage['myDetails']).phone,
-            image: a.awsLink,
+            image: JSON.parse(sessionStorage['myDetails']).image,
         });
+    useEffect(() => {
+        a.awsLink?setDetails({...details, image: a.awsLink}):setDetails({...details, image: details.image})
+    }, [a.awsLink])
+
     const handleDetails = (e) => {
         Axios.post(`${PrivateData.IP}/authentication/update`, details)
             .then((res) => {
-                console.log(res.data[0]);
+                sessionStorage.removeItem("myDetails");
                 sessionStorage['myDetails'] = JSON.stringify(res.data[0]);
             })
         e.preventDefault();
@@ -38,8 +39,8 @@ console.log(readValue);
     return <>
         <div className='row align-items-center justify-content-center m-0'>
             <div className='col-md-2 col-4 mb-3'>
-                <img onClick={handleUploadimg} className="img-fluid rounded-circle m-5" 
-                    src={a.awsLink?details.image:JSON.parse(sessionStorage['myDetails']).image} alt='img' />
+                <img onClick={handleUploadimg} className="rounded-circle mt-2"
+                    src={details.image} alt='img' style={{height:'150px'}}/>
             </div>
             <hr />
 

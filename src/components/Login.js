@@ -24,15 +24,17 @@ export default function Login() {
     const handleLogIn = event => {
         Axios.post(`${PrivateData.IP}/authentication/login`, details)
             .then(function (res) {
-                if (res.data === false) {
-                    noti.addNewMessage('Email or Password Not match', 'danger')
-                    setStyle({ emailCSS: 'border-danger is-invalid', passwordCSS: 'border-danger is-invalid' })
+                if (res.data === 'NE') {
+                    noti.addNewMessage('User Not Exit', 'danger');
+                    navigate('/register');
+                } else if (res.data === 'NM') {
+                    noti.addNewMessage('Password Not Match', 'danger');
+                    setStyle({ emailCSS: '', passwordCSS: 'border-danger is-invalid' })
                 } else {
                     noti.addNewMessage('login in successfully', 'success')
                     sessionStorage.setItem('login', true);
                     sessionStorage.setItem('email', res.data[0].email);
                     sessionStorage['myDetails'] = JSON.stringify(res.data[0]);
-                    
                     navigate('/')
                 }
             });

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Axios from "axios";
 import PrivateData from './data/PrivateData';
+import { toastContext } from '../context/skaContext'
 
 export default function Register() {
+    const noti = useContext(toastContext);
     const navigate = useNavigate();
     const [statusForm, setStatusForm] = useState("email");
     const [OTP, setOTP] = useState();
@@ -16,16 +18,16 @@ export default function Register() {
             phone: '',
             password: '',
             password1: '',
-            image:'https://skillark-assets.s3.amazonaws.com/profiles/1648526000530avatar.png',
+            image: 'https://skillark-assets.s3.amazonaws.com/profiles/1648526000530avatar.png',
         });
     const [style, setStyle] = useState({ otpCSS: '', passwordCSS: '' })
 
     const handleEmail = (e) => {
         Axios.post(`${PrivateData.IP}/authentication/emailverification`, details)
             .then((res) => {
-                if (res.data === true) {
-                    alert('already exit')
-                    navigate('/login')
+                if (res.data === 'AE') {
+                    noti.addNewMessage('User Already Exit', 'warning');
+                    navigate('/login');
                 } else {
                     setOTP(res.data)
                     // console.log(res.data);
@@ -39,19 +41,20 @@ export default function Register() {
             // console.log(enterOTP + ' ' + OTP);
             setStatusForm("details")
         } else {
-            setStyle({ otpCSS: 'border-danger is-invalid' })
-            // console.log(enterOTP + ' ' + OTP);
-            alert('otp Not Match')
+            noti.addNewMessage('Otp Not Match', 'danger');
+            setStyle({ otpCSS: 'border-danger is-invalid' });
         }
         e.preventDefault();
     }
     const handleDetails = (e) => {
         Axios.post(`${PrivateData.IP}/authentication/register`, details)
             .then((res) => {
-                if (res.data === true) {
+                if (res.data === 'I') {
+                    noti.addNewMessage('Successfuly Register', 'success');
                     navigate('/login')
                 } else {
-                    alert('Something went wrong')
+                    noti.addNewMessage('User Already Exit', 'warning');
+                    navigate('/login')
                 }
             })
         e.preventDefault();

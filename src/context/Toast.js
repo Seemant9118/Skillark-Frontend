@@ -14,13 +14,9 @@ const Toast = (props) => {
         let timing = d.getHours() + ":" + d.getMinutes();
         setToastDetails({ message: mess, type: type, time: timing })
     }
-    const [toastStatus, setToastStatus] = useState(false)
-    useEffect(() => {
-        setToastStatus(true)
-    }, [toastDetails])
 
     var option = {
-        // animation: true,
+        animation: true,
         autohide: true,
         delay: 8000,
     };
@@ -49,7 +45,7 @@ const Toast = (props) => {
 
 
             <div className="position-fixed bottom-0 end-0 p-3" style={{ zIndex: '10' }}>
-                {toastStatus && <>
+                {toastDetails.message && <>
                     <div id="liveToast" className={`toast my-1 border-5 border-${toastDetails.type} border-end-0 border-top-0 border-bottom-0`}
                         role="alert" aria-live="assertive" aria-atomic="true" style={{ width: '250px' }}>
                         <div className="toast-header pb-1">
